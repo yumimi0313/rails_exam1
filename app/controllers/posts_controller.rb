@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  berfore_action :set_post, only:[:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -25,12 +27,16 @@ class PostsController < ApplicationController
   def update
   end
 
-  def distory
+  def destory
   end
 
   private
 
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
