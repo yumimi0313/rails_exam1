@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  berfore_action :set_post, only:[:show, :edit, :update, :destroy]
+  before_action :set_post, only:[:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
