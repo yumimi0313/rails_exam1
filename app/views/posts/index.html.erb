@@ -1,0 +1,19 @@
+<h1>つぶやき一覧</h1>
+<%= @posts %>
+
+<table>
+  <tr>
+    <th>内容</th>
+  </tr>
+  
+  <% @posts.each do |blog| %>
+    <tr>
+      <td><%= post.content %></td>
+      <td><%= link to '詳細を確認する', post_path(post.id) %></td>
+      <td><%= link to 'ブログを編集する', edit_path(post.id) %></td>
+      <td><%= link to 'ブログを削除する', post_path(post.id), method: :delete, data: { confirm:'本当に削除していいですか？'}  %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link to '新しくつぶやきを投稿する', new_post_path%>
