@@ -36,8 +36,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def destory
-    @post.destory
+  def destroy
+    set_post
+    @post.destroy
     redirect_to posts_path, notice:"ブログを削除しました"
   end
 
